@@ -1,0 +1,92 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model */
+*{
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  font-family: 'Roboto', 'sans-serif';
+  background-image: url(../assets/img/stacked-steps-haikei.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding: 100px 0;
+}
+
+.container{
+  background-color: white;
+  max-width: 800px;
+  padding: 2em 3.5em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  border: 0.5em solid #FA68A7;
+}
+.hidden{
+  display: none;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+h1,h2,h3{
+  color: #FA68A7;
+}
+
+.title{
+
+}
+
+
+.text-center{
+  text-align: center;
+}
+
+#getDrink{
+  color: white;
+  border-radius: 1em;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: 0.1em solid #FA68A7;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #FA68A7;
+}
+
+#drinkName{
+  text-align: center;
+}
+
+picture{
+  align-self: center;
+}
+
+#drinkImg{
+  display: block;
+  max-width: 300px;
+  border-radius: 1em;
+  border: 0.5em solid #FA68A7;
+}
+
+#drinkIngredients{
+  list-style-type: circle;
+}
+
+#drinkIngredients li{
+
+}
