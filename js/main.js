@@ -4,10 +4,19 @@ getDrinkBtn.addEventListener('click', getDrink)
 
 function getDrink(){
   // DOM ELEMENTS
+  let drinkContainer = document.querySelector('.app');
   let drinkNameHolder = document.querySelector('#drinkName');
   let drinkImgHolder = document.querySelector('#drinkImg');
-  let drinkInstructionsHolder = document.querySelector('#drinkInstructions')
-  let drinkIngredients = document.querySelector('#drinkIngredients')
+  let drinkInstructionsHolder = document.querySelector('#drinkInstructions');
+  let drinkIngredients = document.querySelector('#drinkIngredients');
+
+  if (window.matchMedia('(max-width: 600px)').matches) {
+    drinkContainer.insertBefore(getDrinkBtn, drinkContainer.firstChildChild)
+  } else {
+    drinkContainer.style.height = '850px';
+  }
+  
+
 
   // FIRST FETCH TO GET A RANDOM DRINK
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)

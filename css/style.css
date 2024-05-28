@@ -30,14 +30,20 @@ body{
 
 .app{
   background-color: white;
-  max-width: 600px;
+  width: 600px;
   padding: 2em 3.5em;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: 0.5em solid #FA68A7;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .app{
+    width: 300px;
+    height: auto;
+  }
 }
 /******************************************
 /* ADDITIONAL STYLES
@@ -51,6 +57,7 @@ h1,h2,h3{
 }
 
 #getDrink{
+  margin-top: auto;
   font-family: "Poetsen One", sans-serif;
   color: white;
   border: 0.1em solid #FA68A7;
@@ -59,9 +66,10 @@ h1,h2,h3{
   padding: 0.5em;
   font-size: 1.5rem;
   cursor: pointer;
+  justify-self: flex-end;
 }
 
-#drinkName{
+#drinkName, h1{
   text-align: center;
 }
 
