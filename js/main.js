@@ -11,7 +11,7 @@ function getDrink(){
   let drinkIngredients = document.querySelector('#drinkIngredients');
 
   if (window.matchMedia('(max-width: 600px)').matches) {
-    drinkContainer.insertBefore(getDrinkBtn, drinkContainer.firstChildChild)
+    drinkContainer.insertBefore(getDrinkBtn, drinkContainer.firstChild)
   } else {
     drinkContainer.style.height = '850px';
   }
