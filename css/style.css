@@ -25,12 +25,12 @@ body{
 }
 
 .container{
-  margin: 3rem 2rem;
+  margin: 2rem;
 }
 
 .app{
   background-color: white;
-  width: 600px;
+  width: 300px;
   padding: 2em 3.5em;
   border-radius: 1em;
   display: flex;
@@ -39,12 +39,7 @@ body{
   margin-bottom: 1.5em;
 }
 
-@media only screen and (max-width: 600px) {
-  .app{
-    width: 300px;
-    height: auto;
-  }
-}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/

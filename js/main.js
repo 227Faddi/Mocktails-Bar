@@ -10,10 +10,10 @@ function getDrink(){
   let drinkInstructionsHolder = document.querySelector('#drinkInstructions');
   let drinkIngredients = document.querySelector('#drinkIngredients');
 
-  if (window.matchMedia('(max-width: 600px)').matches) {
-    drinkContainer.insertBefore(getDrinkBtn, drinkContainer.firstChild)
-  } else {
-    drinkContainer.style.height = '850px';
+  if (window.matchMedia('(min-width: 600px)').matches) {
+    drinkContainer.style.minHeight = '900px';
+    drinkContainer.style.width = '700px'
+    drinkImgHolder.style.maxWidth = '250px';
   }
   
 
