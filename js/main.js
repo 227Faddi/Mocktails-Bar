@@ -1,4 +1,3 @@
-
 let getDrinkBtn = document.querySelector('#getDrink')
 
 getDrinkBtn.addEventListener('click', getdrink)

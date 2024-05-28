@@ -46,11 +46,6 @@ h1,h2,h3{
   color: #FA68A7;
 }
 
-.title{
-
-}
-
-
 .text-center{
   text-align: center;
 }
@@ -84,8 +79,4 @@ picture{
 
 #drinkIngredients{
   list-style-type: circle;
-}
-
-#drinkIngredients li{
-
 }

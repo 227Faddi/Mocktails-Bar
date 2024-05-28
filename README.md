@@ -1,14 +1,14 @@
-# 🍹 Mocktails Bar : [Visit Here](https://www.codewars.com/users/227Faddi)
+# 🍹 Mocktails Bar : [Visit Here](https://mocktails-bar.netlify.app/)
 
 
-![alt tag](stats.webp)
+![alt tag](assets/img/landing.png)
 
 ## How It's Made:
 
-**Tech used:** JavaScript, [TheCocktailDB API](https://www.thecocktaildb.com/)
+**Tech used:** HTML, CSS, JavaScript, [TheCocktailDB API](https://www.thecocktaildb.com/).
 
 ## Lessons Learned:
 
-Doing coding challenges regularly is currently helping me learn and understand difficult concepts, and also strengthening my skills.
+This project helped me learn more about APIs and to manage data coming from a fetch 
 
 
