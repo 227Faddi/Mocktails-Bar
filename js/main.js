@@ -13,6 +13,7 @@ function getDrink(){
   if (window.matchMedia('(min-width: 600px)').matches) {
     drinkContainer.style.minHeight = '900px';
     drinkContainer.style.width = '700px'
+
     drinkImgHolder.style.maxWidth = '250px';
   }
   
