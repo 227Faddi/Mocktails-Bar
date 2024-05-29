@@ -10,14 +10,12 @@ function getDrink(){
   let drinkInstructionsHolder = document.querySelector('#drinkInstructions');
   let drinkIngredients = document.querySelector('#drinkIngredients');
 
+  // THE SIZE OF CONTAINER ON BIGGER SCREENS
   if (window.matchMedia('(min-width: 600px)').matches) {
     drinkContainer.style.minHeight = '900px';
     drinkContainer.style.width = '700px'
-
     drinkImgHolder.style.maxWidth = '250px';
   }
-  
-
 
   // FIRST FETCH TO GET A RANDOM DRINK
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
@@ -54,7 +52,6 @@ function getDrink(){
       for(let i = 1; i <= 15; i++){
         let ingredient = data.drinks[0][`strIngredient${i}`];
         let measure = data.drinks[0][`strMeasure${i}`];
-        
         if(ingredient !== null){
           let li = document.createElement('li')
           li.innerText = `${measure ? measure : ''} ${ingredient}.`.trim()
