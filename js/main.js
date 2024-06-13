@@ -4,17 +4,22 @@ getDrinkBtn.addEventListener('click', getDrink)
 
 function getDrink(){
   // DOM ELEMENTS
-  let drinkContainer = document.querySelector('.app');
-  let drinkNameHolder = document.querySelector('#drinkName');
-  let drinkImgHolder = document.querySelector('#drinkImg');
-  let drinkInstructionsHolder = document.querySelector('#drinkInstructions');
-  let drinkIngredients = document.querySelector('#drinkIngredients');
+  const drinkContainer = document.querySelector('.app');
+  const drinkNameHolder = document.querySelector('#drinkName');
+  const drinkImgHolder = document.querySelector('#drinkImg');
+  const drinkInstructionsHolder = document.querySelector('#drinkInstructions');
+  const drinkIngredients = document.querySelector('#drinkIngredients');
 
   // THE SIZE OF CONTAINER ON BIGGER SCREENS
   if (window.matchMedia('(min-width: 600px)').matches) {
-    drinkContainer.style.minHeight = '900px';
-    drinkContainer.style.width = '700px'
-    drinkImgHolder.style.maxWidth = '250px';
+    drinkContainer.style.minHeight = '950px';
+    drinkContainer.style.width = '600px'
+    drinkImgHolder.style.maxWidth = '150px';
+  }
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    drinkContainer.style.minHeight = '800px';
+    drinkContainer.style.width = '850px'
+    drinkImgHolder.style.maxWidth = '200px';
   }
 
   // FIRST FETCH TO GET A RANDOM DRINK
