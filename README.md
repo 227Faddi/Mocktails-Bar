@@ -2,7 +2,7 @@
 
 A simple app that generate a random mocktail from the [TheCocktailDB API](https://www.thecocktaildb.com/).
 
-![alt tag](assets/img/landing.webp)
+![alt tag](assets/img/preview.gif)
 
 ## How It's Made:
 
