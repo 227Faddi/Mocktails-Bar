@@ -1,78 +1,74 @@
-let getDrinkBtn = document.querySelector('#getDrink')
+const getDrinkBtn = document.querySelector('#getDrink')
+const drinkContainer = document.querySelector('.app');
+const drinkNameHolder = document.querySelector('#drinkName');
+const drinkImgHolder = document.querySelector('#drinkImg');
+const drinkInstructionsHolder = document.querySelector('#drinkInstructions');
+const drinkIngredients = document.querySelector('#drinkIngredients');
 
 getDrinkBtn.addEventListener('click', getDrink)
 
-function getDrink(){
-  // DOM ELEMENTS
-  const drinkContainer = document.querySelector('.app');
-  const drinkNameHolder = document.querySelector('#drinkName');
-  const drinkImgHolder = document.querySelector('#drinkImg');
-  const drinkInstructionsHolder = document.querySelector('#drinkInstructions');
-  const drinkIngredients = document.querySelector('#drinkIngredients');
+async function getDrink(){
+  try{  
+    // THE SIZE OF CONTAINER ON BIGGER SCREENS
+    if (window.matchMedia('(min-width: 600px)').matches) {
+      drinkContainer.style.minHeight = '950px';
+      drinkContainer.style.width = '600px'
+      drinkImgHolder.style.maxWidth = '150px';
+    }
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      drinkContainer.style.minHeight = '800px';
+      drinkContainer.style.width = '850px'
+      drinkImgHolder.style.maxWidth = '200px';
+    }
 
-  // THE SIZE OF CONTAINER ON BIGGER SCREENS
-  if (window.matchMedia('(min-width: 600px)').matches) {
-    drinkContainer.style.minHeight = '950px';
-    drinkContainer.style.width = '600px'
-    drinkImgHolder.style.maxWidth = '150px';
-  }
-  if (window.matchMedia('(min-width: 992px)').matches) {
-    drinkContainer.style.minHeight = '800px';
-    drinkContainer.style.width = '850px'
-    drinkImgHolder.style.maxWidth = '200px';
-  }
+    // #1 fetch
+    const drinksRes = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`);
+    if(!drinksRes.ok){
+      throw new Error (`Could not fetch the data`)
+    }
+    const drinksData = await drinksRes.json()
 
-  // FIRST FETCH TO GET A RANDOM DRINK
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
-  .then(res => res.json()) // RESPONSE TO JSON
-  .then(data => {
-    // GENERATE A RANDOM NUM TO PICK A DRINK
-    let count = Math.floor(Math.random() * (data.drinks.length - 1));
-
-    // STORE NAME AND IMG OF THE DRINK
-    let drinkName = data.drinks[count].strDrink
-    let drinkImg = data.drinks[count].strDrinkThumb
-    let drinkId = data.drinks[count].idDrink
-
-    // SHOW HIDDEN ELEMENTS
-    let hidden = document.querySelectorAll('.hidden');
-    Array.from(hidden).forEach((item) => item.classList.toggle('hidden'))
+    const randomNumber = Math.floor(Math.random() * (drinksData.drinks.length - 1));
+    const drinkId = drinksData.drinks[randomNumber].idDrink
     
-    // PLACE NAME AND IMG INTO THE DOM
-    drinkNameHolder.innerText = drinkName
-    drinkImgHolder.src = `${drinkImg}`
+    // #2 fetch
+    const drinkDetailRes = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`);
+    if(!drinkDetailRes.ok){
+      throw new Error (`Could not fetch the data`)
+    }
+    const drinkDetailData = await drinkDetailRes.json();
 
-    // SECOND FETCH TO GET INGREDIENTS AND INSTRUCTION OF THE DRINK
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
-    .then(res => res.json()) // RESPONSE TO JSON
-    .then(data => {
+    // SHOWING HIDDEN ELEMENTS
+    const hidden = document.querySelectorAll('.hidden');
+    Array.from(hidden).forEach((item) => item.classList.toggle('hidden'))
 
-      // CLEAR PREVIOUS INGREDIENTS
-      drinkIngredients.innerHTML = '';
+    const drinkImg = drinkDetailData.drinks[0].strDrinkThumb
+    const drinkName = drinkDetailData.drinks[0].strDrink
+    const drinkInstructions = drinkDetailData.drinks[0].strInstructions;
 
-      // PLACE INSTRUCTIONS IN THE DOM
-      drinkInstructionsHolder.innerText = data.drinks[0].strInstructions
-      
-      // LOOP TO CHECK THE NUM OF MEASURES AND INGREDIENTS AVAILABLE
-      for(let i = 1; i <= 15; i++){
-        let ingredient = data.drinks[0][`strIngredient${i}`];
-        let measure = data.drinks[0][`strMeasure${i}`];
-        if(ingredient !== null){
-          let li = document.createElement('li')
-          li.innerText = `${measure ? measure : ''} ${ingredient}.`.trim()
-          drinkIngredients.appendChild(li)
-        }
+    // CLEAR PREVIOUS INGREDIENTS
+    drinkIngredients.innerHTML = '';
+    // PLACING INGREDIENTS TO THE DOM
+    for(let i = 1; i <= 15; i++){
+      const ingredient = drinkDetailData.drinks[0][`strIngredient${i}`];
+      const measure = drinkDetailData.drinks[0][`strMeasure${i}`];
+
+      if(ingredient){
+        let li = document.createElement('li')
+        li.innerText = `${measure ? measure : ''} ${ingredient}.`.trim()
+        drinkIngredients.appendChild(li)
       }
-    })
-    .catch(err => {
-      console.log(`error ${err}`)
-    });
-    // CHANGE BUTTON TEXT TO GET ANOTHER ONE
+    }
+    // PLACING DATA TO THE DOM
+    drinkImgHolder.src = `${drinkImg}`;
+    drinkNameHolder.innerText = drinkName;
+    drinkInstructionsHolder.innerText = drinkInstructions
+
     getDrinkBtn.innerText = 'Get Another One!'
-  })
-  .catch(err => {
-    console.log(`error ${err}`)
-  });
+  }
+  catch(err){
+    console.log(`Error : ${err}`)
+  }
 }
 
 

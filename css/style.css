@@ -73,6 +73,7 @@ h1,h2,h3{
   font-size: 1.5rem;
   cursor: pointer;
   justify-self: flex-end;
+  align-self: center;
 }
 
 #drinkName, h1{
