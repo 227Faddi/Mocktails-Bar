@@ -1,6 +1,5 @@
 # 🍹 Mocktails Bar : [Visit Here](https://mocktails-bar.netlify.app/)
-
-A simple app that generate a random mocktail from the [TheCocktailDB API](https://www.thecocktaildb.com/).
+Discover delightful mocktail recipes with Mocktails Bar, your go-to app for refreshing non-alcoholic beverages. Using data from [TheCocktailDB API](https://www.thecocktaildb.com/), Mocktails Bar randomly generates unique mocktail recipes to inspire your next drink creation.
 
 ![alt tag](assets/img/preview.gif)
 
