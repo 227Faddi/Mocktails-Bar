@@ -107,3 +107,8 @@ picture{
   color: white;
   margin: 0 0.25em;
 }
+
+.social-container{
+  display: flex;
+  justify-content: center;
+}
