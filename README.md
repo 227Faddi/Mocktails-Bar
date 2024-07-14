@@ -13,4 +13,5 @@ Updated to use async/await for handling asynchronous tasks, improving code reada
 ## Lessons Learned:
 While building the Mocktails Bar app, I gained practical experience integrating third-party APIs, specifically TheCocktailDB API, and handled various data fetch scenarios. By using async/await for asynchronous programming, I simplified the code and made it more readable and maintainable. Additionally, creating a responsive design improved my CSS skills, ensuring the app looks good on all devices
 
-
+## Other Projects:
+Explore more of my recent projects on [My Portfolio](https://faliloukhouma.com).
