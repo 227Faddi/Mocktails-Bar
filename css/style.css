@@ -95,11 +95,6 @@ picture{
   list-style-type: circle;
 }
 
-.socials{
-  display: flex;
-  justify-content: center;
-}
-
 .btn-social {
   border-radius: 100%;
   display: inline-flex;

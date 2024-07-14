@@ -12,7 +12,6 @@ A simple app that generate a random mocktail from the [TheCocktailDB API](https:
 Updated to use async/await for handling asynchronous tasks, improving code readability and simplifying maintenance.
 
 ## Lessons Learned:
-
-This project helped me learn more about APIs and to manage data coming from a fetch 
+While building the Mocktails Bar app, I gained practical experience integrating third-party APIs, specifically TheCocktailDB API, and handled various data fetch scenarios. By using async/await for asynchronous programming, I simplified the code and made it more readable and maintainable. Additionally, creating a responsive design improved my CSS skills, ensuring the app looks good on all devices
 
 
